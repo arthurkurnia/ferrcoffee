@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <meta name="description" content="Fer Coffe - Kedai kopi lokal dengan biji pilihan, racikan signature, dan suasana nyaman.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container navbar-inner">
+      <a href="#home" class="logo">FER COFFE</a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#tentang" class="nav-link">Tentang</a>
+        <a href="#lokasi" class="nav-link">Lokasi</a>
+        <a href="#kontak" class="nav-link">Kontak</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Buka menu navigasi">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tagline">Local Coffee, Global Standard</span>
+      <h1>Grind The Essentials</h1>
+      <p>Kopi berkualitas dari biji lokal pilihan, diseduh dengan hati untuk menemani setiap langkahmu.</p>
+      <a href="#menu" class="btn btn-primary">Lihat Menu</a>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Menu Pilihan</span>
+        <h2>Apa yang kami sajikan</h2>
+      </div>
+
+      <div class="menu-grid">
+        <% menuItems.forEach(function(item) { %>
+          <div class="menu-card">
+            <div class="menu-card-img">
+              <img src="<%= item.gambar %>" alt="<%= item.nama %>" loading="lazy">
+              <span class="badge"><%= item.kategori %></span>
+            </div>
+            <div class="menu-card-body">
+              <h3><%= item.nama %></h3>
+              <p class="harga">Rp <%= item.harga.toLocaleString('id-ID') %></p>
+              <p class="deskripsi"><%= item.deskripsi %></p>
+              <a
+                class="btn btn-wa"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://wa.me/<%= waNumber %>?text=<%= encodeURIComponent('Halo Fer Coffe, saya mau pesan ' + item.nama) %>"
+              >
+                <i class="fa-brands fa-whatsapp"></i> Pesan via WA
+              </a>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="tentang">
+    <div class="container about-grid">
+      <div class="about-img">
+        <img src="https://i.postimg.cc/rpqhV5xP/Whats-App-Image-2026-06-22-at-18-26-53.jpg" alt="Interior Fer Coffe">
+      </div>
+      <div class="about-text">
+        <span class="eyebrow">Tentang Kami</span>
+        <h2>Cerita Fer Coffe</h2>
+        <p>
+          Fer Coffe lahir dari rasa cinta terhadap kopi nusantara, berakar di
+          Kota Serang, Banten. Kami percaya bahwa secangkir kopi yang baik
+          dimulai dari biji yang baik — ditanam oleh petani lokal, dipanggang
+          dengan presisi, dan diseduh oleh tangan-tangan yang benar-benar
+          peduli pada rasa.
+        </p>
+        <p>
+          Di tengah kota Serang yang terus tumbuh, Fer Coffe hadir sebagai ruang
+          singgah yang hangat: tempat bekerja, berdiskusi, atau sekadar menikmati
+          waktu sendiri ditemani aroma kopi terbaik dari berbagai penjuru
+          nusantara.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="lokasi" id="lokasi">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow">Kunjungi Kami</span>
+        <h2>Lokasi & Jam Operasional</h2>
+      </div>
+
+      <div class="lokasi-grid">
+        <div class="map-wrapper">
+          <iframe
+            src="https://maps.google.com/maps?q=-6.1483118,106.171305&z=17&hl=id&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Lokasi Fer Coffe">
+          </iframe>
+        </div>
+
+        <div class="lokasi-info">
+          <div class="info-block">
+            <h3><i class="fa-solid fa-location-dot"></i> Alamat</h3>
+            <p>Kota Serang, Banten</p>
+          </div>
+          <div class="info-block">
+            <h3><i class="fa-regular fa-clock"></i> Jam Operasional</h3>
+            <ul>
+              <li><span>Senin - Jumat</span><span>07.00 - 22.00</span></li>
+              <li><span>Sabtu - Minggu</span><span>08.00 - 23.00</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="kontak">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3>FER COFFE</h3>
+        <p>Grind The Essentials. Kopi lokal, kualitas global.</p>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Kontak Kami</h4>
+        <p><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/<%= waNumber %>" target="_blank" rel="noopener noreferrer">+62 857-1791-2788</a></p>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:mustofaferdiansyah2007@gmail.com">mustofaferdiansyah2007@gmail.com</a></p>
+        <p><i class="fa-brands fa-instagram"></i> <a href="https://instagram.com/zhuo.ferdiansyah" target="_blank" rel="noopener noreferrer">@zhuo.ferdiansyah</a></p>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Navigasi</h4>
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#lokasi">Lokasi</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Fer Coffe. Seluruh hak cipta dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="/js/script.js"></script>
+</body>
+</html>
